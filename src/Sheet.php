@@ -672,7 +672,7 @@ class Sheet
             return ArrayHelper::ensureMultipleRows(
                 static::mapArraybleRow($row)
             );
-        })->chunk(1000)->each(function ($rows) use ($sheetExport) {
+        })->chunk(20000)->each(function ($rows) use ($sheetExport) {
             $this->append(
                 $rows->toArray(),
                 $sheetExport instanceof WithCustomStartCell ? $sheetExport->startCell() : null,
